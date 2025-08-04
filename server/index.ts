@@ -55,12 +55,10 @@ app.use((req, res, next) => {
   }
 
   const port = parseInt(process.env.PORT || '5000', 10);
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
+  
+  // ✅ Correct syntax for listen
+  server.listen(port, '127.0.0.1', () => {
+    log(`🚀 Server is running at http://127.0.0.1:${port}`);
   });
 })();
 
